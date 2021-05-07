@@ -9,9 +9,10 @@
 @import "~/assets/sass/layout"
 
 .root
-  background-image: url(~assets/images/background.jpg)
+  background-image: url(~assets/images/background2.jpg)
   background-size: cover
   // background-attachment: fixed
   // background-repeat: no-repeat
   background-position: center
+  height: 100vh
 </style>

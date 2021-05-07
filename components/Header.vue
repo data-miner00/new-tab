@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="logo">New Tab</div>
 
-    <!-- Search Sectopm -->
+    <!-- Search Section -->
     <div class="search">
       <div class="select-search">
         <select v-model="searchEngine">
@@ -94,16 +94,14 @@ export default Vue.extend({
 header
   height: 80px
   width: 100%
-  padding: 0 10%
+  padding: 0 20%
   display: flex
   justify-content: space-between
   align-items: center
   border-bottom: 1px solid #eee
   backdrop-filter: blur(5px)
   // color: white
-  position: sticky
-  top: 0
-  left: 0
+
   .logo
     text-transform: uppercase
     font-size: 20px
@@ -122,6 +120,7 @@ header
 
     select
       padding: 10px 0
+      cursor: pointer
     input
       padding: 11px 10px 9px
       width: 26vw

@@ -1,28 +1,5 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">radix-sort</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <div class="container"></div>
 </template>
 
 <script lang="ts">
@@ -38,7 +15,7 @@ export default Vue.extend({
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
