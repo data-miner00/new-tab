@@ -27,11 +27,12 @@
     </div>
 
     <!-- User Panel -->
-    <div class="user">
+    <div class="user" @click="dropdown = !dropdown">
       <div class="avatar-wrap">
         <div class="avatar"></div>
       </div>
-      <div class="username">Sebastian</div>
+      <div class="username">Sebastian <i class="gg-chevron-down"></i></div>
+      <div class="dropdown" v-if="dropdown">Settings</div>
     </div>
   </header>
 </template>
@@ -42,6 +43,7 @@ export default Vue.extend({
   data: () => ({
     searchEngine: 'Google',
     searchText: '',
+    dropdown: true,
   }),
   methods: {
     search() {
@@ -51,6 +53,10 @@ export default Vue.extend({
           ?.searchUrl + parsedSearchText
 
       window.open(parsedUrl, '_blank')
+    },
+    closeDropdown() {
+      if (this.dropdown) this.dropdown = false
+      else this.dropdown = true
     },
   },
   computed: {
@@ -91,6 +97,7 @@ export default Vue.extend({
 </script>
 
 <style lang="sass" scoped>
+@import "~/assets/sass/chevron"
 header
   height: 80px
   width: 100%
@@ -131,6 +138,7 @@ header
     align-items: center
     border-radius: 250px
     cursor: pointer
+    position: relative
     &:hover
       background: rgba(255,255,255,0.4)
     .avatar-wrap
@@ -152,4 +160,14 @@ header
       padding: 5px 12px 5px 8px
       border-radius: 240px
       transition: background 0.2s
+
+    .dropdown
+      position: absolute
+      bottom: -40px
+      left: 0
+      right: 0
+      padding: 8px 10px
+      text-align: center
+      border: 1px solid #eee
+      background: white
 </style>
