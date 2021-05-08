@@ -22,6 +22,7 @@
           placeholder="Search the internet by typing here"
           v-model="searchText"
           @keyup.enter="search"
+          autofocus
         />
       </div>
     </div>
@@ -53,10 +54,6 @@ export default Vue.extend({
           ?.searchUrl + parsedSearchText
 
       window.open(parsedUrl, '_blank')
-    },
-    closeDropdown() {
-      if (this.dropdown) this.dropdown = false
-      else this.dropdown = true
     },
   },
   computed: {
@@ -140,7 +137,7 @@ header
     cursor: pointer
     position: relative
     &:hover
-      background: rgba(255,255,255,0.4)
+      background: #eee
     .avatar-wrap
       border-radius: 250px
       display: grid
