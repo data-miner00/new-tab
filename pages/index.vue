@@ -1,5 +1,10 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <div class="main">
+      <div class="greeting">Good morning Kyle. What would you like to do?</div>
+    </div>
+    <div class="side-section"></div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,35 +17,25 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   height: calc(100vh - 80px);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  /* justify-content: center; */
+  /* align-items: center;
+  text-align: center; */
+  padding: 20px 20%;
+  display: grid;
+  grid-template-columns: 70% 30%;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.greeting {
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.side-section {
+  background: #eee;
 }
 </style>
