@@ -90,7 +90,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 header
   height: 80px
   width: 100%
@@ -99,7 +99,7 @@ header
   justify-content: space-between
   align-items: center
   border-bottom: 1px solid #eee
-  backdrop-filter: blur(5px)
+  // backdrop-filter: blur(5px)
   // color: white
 
   .logo
@@ -111,7 +111,7 @@ header
     display: flex
     border: 1px solid #eee
     border-radius: 250px
-    background: rgba(255, 255, 255, 0.3)
+    // background: rgba(255, 255, 255, 0.3)
 
     input, select
       border: none
