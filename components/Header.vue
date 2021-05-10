@@ -44,7 +44,7 @@ export default Vue.extend({
   data: () => ({
     searchEngine: 'Google',
     searchText: '',
-    dropdown: true,
+    dropdown: false,
   }),
   methods: {
     search() {
@@ -57,6 +57,9 @@ export default Vue.extend({
     },
   },
   computed: {
+    username() {
+      return this.$store.state.user.username
+    },
     availableSearchEngines() {
       return [
         {
