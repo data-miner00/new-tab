@@ -9,14 +9,55 @@
         <!-- <fa icon="envelope" /> -->
       </div>
 
-      <div class="greeting">Good morning Kyle. What would you like to do?</div>
+      <div class="greeting">
+        Good morning {{ username }}. What would you like to do?
+      </div>
 
       <div class="available-actions">
-        <div class="action"></div>
-        <div class="action"></div>
-        <div class="action"></div>
-        <div class="action"></div>
-        <div class="action"></div>
+        <div class="action">
+          <div class="title">Notes</div>
+          <div class="description">
+            Writing things down help you to free up your mental capacity for
+            better productiveness.
+          </div>
+          <div class="link">To My Notes <fa icon="long-arrow-alt-right" /></div>
+        </div>
+        <div class="action">
+          <div class="title">Web Management</div>
+          <div class="description">
+            Internet is a vast territory that must be documented to leverage the
+            value they provides.
+          </div>
+          <div class="link">To Web List <fa icon="long-arrow-alt-right" /></div>
+        </div>
+        <div class="action">
+          <div class="title">Tasks</div>
+          <div class="description">
+            Life is busy and constantly bombarded with never-ending trials of
+            things to do.
+          </div>
+          <div class="link">
+            To Task List <fa icon="long-arrow-alt-right" />
+          </div>
+        </div>
+        <div class="action">
+          <div class="title">Diary</div>
+          <div class="description">
+            Cherish every moment in your life by transforming your experience
+            into words that resonate.
+          </div>
+          <div class="link">To Diary <fa icon="long-arrow-alt-right" /></div>
+        </div>
+        <div class="action">
+          <div class="title">Scratchpad</div>
+          <div class="description">
+            A quick place for you to express your idea and consolidate them
+            illogically.
+          </div>
+          <div class="link">
+            To Scratchpad <fa icon="long-arrow-alt-right" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="side-section"></div>
@@ -43,7 +84,9 @@ export default Vue.extend({
     const minute: number = dateObj.getMinutes()
     const time: string = `${hour}:${minute.toString().padStart(2, '0')} ${AMPM}`
 
+    // @ts-ignore
     const month: string = this.months[dateObj.getMonth()]
+    // @ts-ignore
     const day: string = this.days[dateObj.getDay()]
     const _date: number = dateObj.getDate()
     const date: string = `${day}, ${month} ${_date}`
@@ -51,7 +94,6 @@ export default Vue.extend({
     this.time = time
     this.date = date
   },
-
   computed: {
     months() {
       return [
@@ -79,6 +121,9 @@ export default Vue.extend({
         'Friday',
         'Saturday',
       ]
+    },
+    username() {
+      return this.$store.state.user.username
     },
   },
 })
@@ -118,18 +163,49 @@ export default Vue.extend({
 }
 
 .available-actions {
-  min-height: 100px;
+  margin-top: 2em;
   width: 90%;
-  border: 1px solid #eee;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  padding: 5px;
+  gap: 10px;
+  padding: 0 3px;
 }
 
 .action {
-  flex-basis: 30%;
-  height: 50px;
-  border: 1px solid green;
+  flex-basis: 32%;
+  height: 200px;
+  border: 1px solid #eee;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.action.disabled {
+  cursor: default;
+  border: 1px solid gray;
+}
+
+.action:hover {
+  box-shadow: 0px 0px 20px 5px #eee;
+}
+
+.action:hover > .link {
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.link {
+  margin-top: 20px;
+  color: #067df7;
 }
 </style>
