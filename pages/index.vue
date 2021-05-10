@@ -6,9 +6,18 @@
           <img src="~/assets/images/day.png" alt="day" height="40" />
         </div>
         <div class="date-time">{{ date }} {{ time }}</div>
+        <!-- <fa icon="envelope" /> -->
       </div>
 
       <div class="greeting">Good morning Kyle. What would you like to do?</div>
+
+      <div class="available-actions">
+        <div class="action"></div>
+        <div class="action"></div>
+        <div class="action"></div>
+        <div class="action"></div>
+        <div class="action"></div>
+      </div>
     </div>
     <div class="side-section"></div>
   </div>
@@ -32,7 +41,7 @@ export default Vue.extend({
     const AMPM: string = _hour >= 12 ? 'PM' : 'AM'
     const hour: number = _hour > 12 ? _hour - 12 : _hour
     const minute: number = dateObj.getMinutes()
-    const time: string = `${hour}:${minute} ${AMPM}`
+    const time: string = `${hour}:${minute.toString().padStart(2, '0')} ${AMPM}`
 
     const month: string = this.months[dateObj.getMonth()]
     const day: string = this.days[dateObj.getDay()]
@@ -106,5 +115,21 @@ export default Vue.extend({
 
 .date-time {
   margin-left: 10px;
+}
+
+.available-actions {
+  min-height: 100px;
+  width: 90%;
+  border: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+}
+
+.action {
+  flex-basis: 30%;
+  height: 50px;
+  border: 1px solid green;
 }
 </style>
