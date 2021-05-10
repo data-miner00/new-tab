@@ -27,6 +27,13 @@
       </div>
     </div>
 
+    <!-- Locale Buttons -->
+    <div class="locales">
+      <div class="locale selected">English</div>
+      <div class="seperator">&nbsp;|&nbsp;</div>
+      <div class="locale">日本語</div>
+    </div>
+
     <!-- User Panel -->
     <div class="user" @click="dropdown = !dropdown">
       <div class="avatar-wrap">
@@ -132,7 +139,17 @@ header
       padding: 11px 10px 9px
       width: 26vw
 
-
+  .locales
+    display: flex
+    line-height: 24px
+    .locale
+      cursor: pointer
+      &.selected
+        color: brown
+        text-decoration: underline
+    .seperator
+      color: #ccc
+      user-select: none
   .user
     display: flex
     align-items: center
