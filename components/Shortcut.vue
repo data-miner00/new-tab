@@ -39,6 +39,7 @@ a.individual
   text-decoration: none
   color: inherit
   background: #fafafa
+  transition: background .2s
 
   .favicon
     height: 48px
