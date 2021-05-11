@@ -75,6 +75,19 @@
           </div>
         </div>
       </div>
+
+      <div class="pages">
+        <div class="pages-title">Frequently Visited</div>
+        <div class="shortcut-container">
+          <Shortcut
+            v-for="(shortcut, index) in shortcuts"
+            :key="index"
+            :icon="shortcut.icon"
+            :name="shortcut.name"
+            :url="shortcut.url"
+          />
+        </div>
+      </div>
     </div>
     <div class="side-section">
       <div class="section">
@@ -117,8 +130,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
+// import Shortcut from '~/components/Shortcut.vue'
 
 export default Vue.extend({
+  // components: { Shortcut },
   head: () => ({
     title: 'New Tab',
   }),
@@ -180,6 +195,60 @@ export default Vue.extend({
       const hours: number = new Date().getHours()
       return hours > 6 && hours < 19
     },
+    shortcuts() {
+      return [
+        {
+          name: 'Facebook',
+          icon: 'facebook',
+          url: 'https://www.facebook.com',
+        },
+        {
+          name: 'Twitter',
+          icon: 'twitter',
+          url: 'https://www.twitter.com',
+        },
+        {
+          name: 'Youtube',
+          icon: 'youtube',
+          url: 'https://www.youtube.com',
+        },
+        {
+          name: 'Instagram',
+          icon: 'instagram',
+          url: 'https://www.instagram.com',
+        },
+        {
+          name: 'GitHub',
+          icon: 'github',
+          url: 'https://www.github.com',
+        },
+        {
+          name: 'Windy',
+          icon: 'windy',
+          url: 'https://www.windy.com',
+        },
+        {
+          name: 'Reddit',
+          icon: 'reddit',
+          url: 'https://www.reddit.com',
+        },
+        {
+          name: 'Laracasts',
+          icon: 'laracasts',
+          url: 'https://www.laracasts.com',
+        },
+        {
+          name: 'Stack Overflow',
+          icon: 'stackoverflow',
+          url: 'https://www.stackoverflow.com',
+        },
+        {
+          name: 'Pinterest',
+          icon: 'pinterest',
+          url: 'https://www.pinterest.com',
+        },
+      ]
+    },
   },
 })
 </script>
@@ -187,7 +256,7 @@ export default Vue.extend({
 <style scoped>
 .container {
   margin: 0 auto;
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
   display: flex;
   /* justify-content: center; */
   /* align-items: center;
@@ -293,5 +362,21 @@ export default Vue.extend({
   font-size: 12px;
   padding: 10px 0;
   text-align: justify;
+}
+
+.pages {
+  margin-top: 2em;
+}
+
+.shortcut-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pages-title {
+  text-align: center;
+  font-size: 18px;
 }
 </style>
