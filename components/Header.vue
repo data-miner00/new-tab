@@ -114,6 +114,10 @@ header
   align-items: center
   border-bottom: 1px solid #eee
   // backdrop-filter: blur(5px)
+  background: white
+  position: sticky
+  top: 0
+  left: 0
   // color: white
 
   .logo
