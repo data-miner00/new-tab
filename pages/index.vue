@@ -91,14 +91,32 @@
     </div>
     <div class="side-section">
       <div class="section">
+        <div class="section-title">Reminder</div>
+        <div class="reminding-task">JLPT Exam</div>
+        <div class="countdown">
+          <div class="time-t">
+            <div class="time-left">10</div>
+            <div class="time-label">Days</div>
+          </div>
+          <div class="time-t">
+            <div class="time-left">10</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-t">
+            <div class="time-left">10</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-t">
+            <div class="time-left">10</div>
+            <div class="time-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+      <div class="section new">
         <div class="section-title">Advertistment</div>
         <div class="ad">
           <div class="ad-image">
-            <img
-              src="https://cdn4.buysellads.net/uu/7/87530/1619710913-CSS-tricks-ad-build.png"
-              alt=""
-              width="250"
-            />
+            <img src="ads/ads3.png" width="250" />
           </div>
           <div class="ad-desc">
             Join Hotjar, lorem ipsum dolor sit amet. Adispicing elet. Lmao msis.
@@ -106,11 +124,7 @@
         </div>
         <div class="ad">
           <div class="ad-image">
-            <img
-              src="https://cdn4.buysellads.net/uu/7/87530/1619545940-1619474849-brand.jpg"
-              alt=""
-              width="250"
-            />
+            <img src="ads/ads2.jpg" alt="" width="250" />
           </div>
           <div class="ad-desc">
             Raygun, the collest thing on earth, lorem ipsum dolor sit amet.
@@ -140,6 +154,7 @@ export default Vue.extend({
   data: () => ({
     date: '',
     time: '',
+    miliseconds: 438026426,
   }),
   mounted() {
     const dateObj: Date = new Date()
@@ -378,5 +393,27 @@ export default Vue.extend({
 .pages-title {
   text-align: center;
   font-size: 18px;
+}
+
+.countdown {
+  display: flex;
+  margin-top: 10px;
+}
+
+.time-t {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.time-left {
+  font-size: 24px;
+}
+
+.time-label {
+  font-size: 12px;
+  color: gray;
 }
 </style>
