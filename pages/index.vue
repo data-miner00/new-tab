@@ -95,19 +95,19 @@
         <div class="reminding-task">JLPT Exam</div>
         <div class="countdown">
           <div class="time-t">
-            <div class="time-left">10</div>
+            <div class="time-left">{{ cd_days }}</div>
             <div class="time-label">Days</div>
           </div>
           <div class="time-t">
-            <div class="time-left">10</div>
+            <div class="time-left">{{ cd_hours }}</div>
             <div class="time-label">Hours</div>
           </div>
           <div class="time-t">
-            <div class="time-left">10</div>
+            <div class="time-left">{{ cd_minutes }}</div>
             <div class="time-label">Minutes</div>
           </div>
           <div class="time-t">
-            <div class="time-left">10</div>
+            <div class="time-left">{{ cd_seconds }}</div>
             <div class="time-label">Seconds</div>
           </div>
         </div>
@@ -146,6 +146,12 @@
 import Vue from 'vue'
 // import Shortcut from '~/components/Shortcut.vue'
 
+// How the fuck does time works?
+const SECOND: number = 1000
+const MINUTE: number = SECOND * 60
+const HOUR: number = MINUTE * 60
+const DAY: number = HOUR * 24
+
 export default Vue.extend({
   // components: { Shortcut },
   head: () => ({
@@ -155,13 +161,17 @@ export default Vue.extend({
     date: '',
     time: '',
     miliseconds: 438026426,
+    cd_days: 10,
+    cd_hours: 10,
+    cd_minutes: 10,
+    cd_seconds: 10,
   }),
   mounted() {
     const dateObj: Date = new Date()
 
     const _hour: number = dateObj.getHours()
     const AMPM: string = _hour >= 12 ? 'PM' : 'AM'
-    const hour: number = _hour > 12 ? _hour - 12 : _hour
+    const hour: number = _hour == 0 ? 12 : _hour > 12 ? _hour - 12 : _hour
     const minute: number = dateObj.getMinutes()
     const time: string = `${hour}:${minute.toString().padStart(2, '0')} ${AMPM}`
 
@@ -174,6 +184,18 @@ export default Vue.extend({
 
     this.time = time
     this.date = date
+
+    const reminderDate: Date = new Date('May 17, 2021 00:00:00')
+
+    setInterval(() => {
+      const newDate: Date = new Date()
+      const differenceInMilis: number =
+        reminderDate.getTime() - newDate.getTime()
+      this.cd_days = Math.floor(differenceInMilis / DAY)
+      this.cd_hours = Math.floor((differenceInMilis % DAY) / HOUR)
+      this.cd_minutes = Math.floor((differenceInMilis % HOUR) / MINUTE)
+      this.cd_seconds = Math.floor((differenceInMilis % MINUTE) / SECOND)
+    }, 8000)
   },
   computed: {
     months() {
