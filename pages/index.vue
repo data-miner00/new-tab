@@ -60,7 +60,42 @@
         </div>
       </div>
     </div>
-    <div class="side-section"></div>
+    <div class="side-section">
+      <div class="section">
+        <div class="section-title">Advertistment</div>
+        <div class="ad">
+          <div class="ad-image">
+            <img
+              src="https://cdn4.buysellads.net/uu/7/87530/1619710913-CSS-tricks-ad-build.png"
+              alt=""
+              width="250"
+            />
+          </div>
+          <div class="ad-desc">
+            Join Hotjar, lorem ipsum dolor sit amet. Adispicing elet. Lmao msis.
+          </div>
+        </div>
+        <div class="ad">
+          <div class="ad-image">
+            <img
+              src="https://cdn4.buysellads.net/uu/7/87530/1619545940-1619474849-brand.jpg"
+              alt=""
+              width="250"
+            />
+          </div>
+          <div class="ad-desc">
+            Raygun, the collest thing on earth, lorem ipsum dolor sit amet.
+            Adispicing elet. Lmao msis.
+          </div>
+        </div>
+      </div>
+      <div class="section new">
+        <div class="section-title">Rando Memes</div>
+        <div class="meme">
+          <img src="~/assets/images/meme.jpeg" alt="" width="250" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -149,7 +184,7 @@ export default Vue.extend({
 }
 
 .side-section {
-  background: #eee;
+  border: 1px solid #eee;
 }
 
 .time {
@@ -194,6 +229,10 @@ export default Vue.extend({
   text-decoration: underline;
 }
 
+.new {
+  margin-top: 50px;
+}
+
 .title {
   font-size: 16px;
   font-weight: 600;
@@ -207,5 +246,32 @@ export default Vue.extend({
 .link {
   margin-top: 20px;
   color: #067df7;
+}
+
+.side-section {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 14px;
+  color: gray;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.ad {
+  background: #fafafa;
+  width: 270px;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+}
+
+.ad-desc {
+  font-size: 12px;
+  padding: 10px 0;
+  text-align: justify;
 }
 </style>
