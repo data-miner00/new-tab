@@ -3,7 +3,13 @@
     <div class="main">
       <div class="time">
         <div>
-          <img src="~/assets/images/day.png" alt="day" height="40" />
+          <img
+            v-if="isDay"
+            src="~/assets/images/day.png"
+            alt="day"
+            height="40"
+          />
+          <img v-else src="~/assets/images/night.png" alt="day" height="40" />
         </div>
         <div class="date-time">{{ date }} {{ time }}</div>
         <!-- <fa icon="envelope" /> -->
@@ -56,6 +62,16 @@
           </div>
           <div class="link">
             To Scratchpad <fa icon="long-arrow-alt-right" />
+          </div>
+        </div>
+        <div class="action">
+          <div class="title">Dictionary</div>
+          <div class="description">
+            Save new vocabulary that can be reviewed later on to reinforce the
+            meaning and usage.
+          </div>
+          <div class="link">
+            To Dictionary <fa icon="long-arrow-alt-right" />
           </div>
         </div>
       </div>
@@ -159,6 +175,10 @@ export default Vue.extend({
     },
     username() {
       return this.$store.state.user.username
+    },
+    isDay() {
+      const hours: number = new Date().getHours()
+      return hours > 6 && hours < 19
     },
   },
 })
