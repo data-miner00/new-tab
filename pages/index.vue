@@ -88,6 +88,20 @@
           />
         </div>
       </div>
+
+      <div class="resources">
+        <div class="pages-title">Resources</div>
+        <div class="resource-container">
+          <Resource
+            v-for="(resource, index) in resources"
+            :key="index"
+            :title="resource.title"
+            :icon="resource.icon"
+            :url="resource.url"
+            :domain="resource.domain"
+          />
+        </div>
+      </div>
     </div>
     <div class="side-section">
       <div class="section">
@@ -154,7 +168,7 @@ const DAY: number = HOUR * 24
 
 export default Vue.extend({
   // components: { Shortcut },
-  head: () => ({
+  head: (): Object => ({
     title: 'New Tab',
   }),
   data: () => ({
@@ -283,6 +297,37 @@ export default Vue.extend({
           name: 'Pinterest',
           icon: 'pinterest',
           url: 'https://www.pinterest.com',
+        },
+      ]
+    },
+    resources() {
+      return [
+        {
+          icon: 'gdrive',
+          title: 'JLPT Resource',
+          domain: 'drive.google.com',
+          url:
+            'https://drive.google.com/drive/folders/1GPr0fv3als98UVjrJmp0OKYuLMDnUgL6',
+        },
+        {
+          icon: 'u',
+          title: 'UCI Machine Learning Repository',
+          domain: 'archive.ics.uci.edu',
+          url: 'https://archive.ics.uci.edu/ml/index.php',
+        },
+        {
+          icon: 'gdrive',
+          title: 'JLPT Resource',
+          domain: 'drive.google.com',
+          url:
+            'https://drive.google.com/drive/folders/1GPr0fv3als98UVjrJmp0OKYuLMDnUgL6',
+        },
+        {
+          icon: 'gdrive',
+          title: 'JLPT Resource',
+          domain: 'drive.google.com',
+          url:
+            'https://drive.google.com/drive/folders/1GPr0fv3als98UVjrJmp0OKYuLMDnUgL6',
         },
       ]
     },
@@ -437,5 +482,16 @@ export default Vue.extend({
 .time-label {
   font-size: 12px;
   color: gray;
+}
+
+.resources {
+  margin-top: 2em;
+}
+
+.resource-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
 }
 </style>
