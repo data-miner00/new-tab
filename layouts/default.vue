@@ -15,5 +15,5 @@
   // background-repeat: no-repeat
   // background-position: center
   background: white
-  height: 100vh
+  min-height: 100vh
 </style>
