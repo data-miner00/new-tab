@@ -100,6 +100,9 @@
             :url="resource.url"
             :domain="resource.domain"
           />
+          <div class="view-full">
+            <div>Full Resource List<fa icon="long-arrow-alt-right" /></div>
+          </div>
         </div>
       </div>
     </div>
@@ -493,5 +496,20 @@ export default Vue.extend({
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
+}
+
+.view-full {
+  height: 60px;
+  display: grid;
+  place-items: center;
+  color: #067df7;
+  width: 45%;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.view-full:hover {
+  text-decoration: underline;
 }
 </style>
