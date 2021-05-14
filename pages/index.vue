@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="main">
+      <!-- Date and Time  -->
       <div class="time">
         <div>
           <img
@@ -12,13 +13,16 @@
           <img v-else src="~/assets/images/night.png" alt="day" height="40" />
         </div>
         <div class="date-time">{{ date }} {{ time }}</div>
-        <!-- <fa icon="envelope" /> -->
       </div>
 
+      <div class="birthday-noti"></div>
+
+      <!-- Greeting -->
       <div class="greeting">
         Good morning {{ username }}. What would you like to do?
       </div>
 
+      <!-- Available Actions -->
       <div class="available-actions">
         <div class="action">
           <div class="title">Notes</div>
@@ -76,6 +80,7 @@
         </div>
       </div>
 
+      <!-- Frequently Visited -->
       <div class="pages">
         <div class="pages-title">Frequently Visited</div>
         <div class="shortcut-container">
@@ -89,6 +94,7 @@
         </div>
       </div>
 
+      <!-- Resources -->
       <div class="resources">
         <div class="pages-title">Resources</div>
         <div class="resource-container">
@@ -105,6 +111,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Scholar Article Search -->
     </div>
     <div class="side-section">
       <div class="section">
@@ -149,10 +157,26 @@
           </div>
         </div>
       </div>
+
+      <div class="section new birthday-section">
+        <div class="section-title birthday-title">Birthday</div>
+        <div class="section-desc">Birthday this month</div>
+        <div class="birthday-list">
+          <Birthday
+            v-for="(birthday, index) in birthdays"
+            :key="index"
+            :name="birthday.name"
+            :birthYear="birthday.birthYear"
+            :birthMonth="birthday.birthMonth"
+            :birthDay="birthday.birthDay"
+          />
+        </div>
+      </div>
+
       <div class="section new">
         <div class="section-title">Rando Memes</div>
         <div class="meme">
-          <img src="~/assets/images/meme.jpeg" alt="" width="250" />
+          <img src="~/assets/images/meme.jpeg" alt="angry as fuk" width="250" />
         </div>
       </div>
     </div>
@@ -161,7 +185,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-// import Shortcut from '~/components/Shortcut.vue'
 
 // How the fuck does time works?
 const SECOND: number = 1000
@@ -170,7 +193,6 @@ const HOUR: number = MINUTE * 60
 const DAY: number = HOUR * 24
 
 export default Vue.extend({
-  // components: { Shortcut },
   head: (): Object => ({
     title: 'New Tab',
   }),
@@ -319,11 +341,11 @@ export default Vue.extend({
           url: 'https://archive.ics.uci.edu/ml/index.php',
         },
         {
-          icon: 'gdrive',
-          title: 'JLPT Resource',
-          domain: 'drive.google.com',
+          icon: 'gspreadsheet',
+          title: 'Workout Guide',
+          domain: 'docs.google.com',
           url:
-            'https://drive.google.com/drive/folders/1GPr0fv3als98UVjrJmp0OKYuLMDnUgL6',
+            'https://docs.google.com/spreadsheets/d/1fR-rf2mDb9Ex5mwYbHcKflfJOxdPOtTV4AVopjxVpi4/edit#gid=0',
         },
         {
           icon: 'gdrive',
@@ -331,6 +353,34 @@ export default Vue.extend({
           domain: 'drive.google.com',
           url:
             'https://drive.google.com/drive/folders/1GPr0fv3als98UVjrJmp0OKYuLMDnUgL6',
+        },
+      ]
+    },
+    birthdays() {
+      return [
+        {
+          name: 'Tan Wei Jie',
+          birthYear: 1998,
+          birthMonth: 5,
+          birthDay: 21,
+        },
+        {
+          name: 'Lim Jing Chun',
+          birthYear: 1998,
+          birthMonth: 5,
+          birthDay: 23,
+        },
+        {
+          name: 'Tan Wei Yan',
+          birthYear: 1998,
+          birthMonth: 5,
+          birthDay: 24,
+        },
+        {
+          name: 'Yin Siew Fai',
+          birthYear: 1998,
+          birthMonth: 5,
+          birthDay: 28,
         },
       ]
     },
@@ -511,5 +561,12 @@ export default Vue.extend({
 
 .view-full:hover {
   text-decoration: underline;
+}
+
+.birthday-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
 }
 </style>
