@@ -1,5 +1,5 @@
 <template lang="pug">
-  .birthday
+  .birthday(:class="randomClass")
     .p-name {{ name }}
     .p-birthday {{ dob }} • {{ timeLeft }} days left • {{ age }} yrs old
 </template>
@@ -46,6 +46,10 @@ export default Vue.extend({
     dob() {
       return `${this.birthYear}/${this.birthMonth}/${this.birthDay}`
     },
+
+    randomClass() {
+      return `s${Math.floor(Math.random() * 4)}`
+    },
   },
 })
 </script>
@@ -54,7 +58,7 @@ export default Vue.extend({
 .birthday {
   padding: 10px;
   border-radius: 10px;
-  background: linear-gradient(to right, #00c9ff, #92fe9d);
+
   color: white;
 
   .p-name {
@@ -64,6 +68,22 @@ export default Vue.extend({
   .p-birthday {
     margin-top: 5px;
     font-size: 14px;
+  }
+
+  &.s1 {
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+  }
+
+  &.s2 {
+    background: linear-gradient(to right, #673ab7, #512da8);
+  }
+
+  &.s3 {
+    background: linear-gradient(to right, #f46b45, #eea849);
+  }
+
+  &.s4 {
+    background: linear-gradient(to right, #8e9eab, #eef2f3);
   }
 }
 </style>
