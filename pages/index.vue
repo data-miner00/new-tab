@@ -137,6 +137,15 @@
       <!-- Cloud Storage -->
       <div class="cloud">
         <div class="pages-title">Cloud Storage</div>
+        <div class="shortcut-container">
+          <Shortcut
+            v-for="(cloudStorage, index) in cloudStorages"
+            :key="index"
+            :name="cloudStorage.name"
+            :icon="cloudStorage.icon"
+            :url="cloudStorage.url"
+          />
+        </div>
       </div>
     </div>
     <div class="side-section">
@@ -197,6 +206,10 @@
           />
         </div>
       </div>
+
+      <!-- <div class="section new meditate">
+        <div class="section-title">Meditate</div>
+      </div> -->
 
       <div class="section new">
         <div class="section-title">Rando Memes</div>
@@ -414,6 +427,35 @@ export default Vue.extend({
           birthYear: 1998,
           birthMonth: 5,
           birthDay: 28,
+        },
+      ]
+    },
+    cloudStorages() {
+      return [
+        {
+          name: 'Mega',
+          icon: 'mega',
+          url: 'https://mega.io/',
+        },
+        {
+          name: 'Onedrive',
+          icon: 'onedrive',
+          url: 'https://onedrive.live.com/',
+        },
+        {
+          name: 'Google Drive',
+          icon: 'gdrive',
+          url: 'https://www.drive.google.com/',
+        },
+        {
+          name: 'Dropbox',
+          icon: 'dropbox',
+          url: 'https://www.dropbox.com',
+        },
+        {
+          name: 'iCloud',
+          icon: 'icloud',
+          url: 'https://www.icloud.com',
         },
       ]
     },
@@ -645,6 +687,6 @@ export default Vue.extend({
 }
 
 .cloud {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 </style>
