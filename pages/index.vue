@@ -210,6 +210,17 @@
       <!-- <div class="section new meditate">
         <div class="section-title">Meditate</div>
       </div> -->
+      <div class="section new">
+        <div class="section-title">Routines</div>
+        <div class="routines">
+          <Routine
+            v-for="(routine, index) in routines"
+            :key="index"
+            :title="routine.title"
+            :done="routine.done"
+          />
+        </div>
+      </div>
 
       <div class="section new">
         <div class="section-title">Rando Memes</div>
@@ -456,6 +467,26 @@ export default Vue.extend({
           name: 'iCloud',
           icon: 'icloud',
           url: 'https://www.icloud.com',
+        },
+      ]
+    },
+    routines() {
+      return [
+        {
+          title: 'Wake up at 7am',
+          done: false,
+        },
+        {
+          title: 'Meditate for 10 minutes',
+          done: false,
+        },
+        {
+          title: 'Exercise for 10 minutes',
+          done: true,
+        },
+        {
+          title: 'Read books for 20 minutes',
+          done: false,
         },
       ]
     },
