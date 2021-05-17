@@ -113,6 +113,31 @@
       </div>
 
       <!-- Scholar Article Search -->
+      <div class="scholar">
+        <div class="pages-title">Scholar Article</div>
+        <div class="search-article">
+          <div><img src="favicons/libgen.png" alt="libgen" /></div>
+          <div>
+            <input
+              type="text"
+              placeholder="Search for articles and research papers..."
+              v-model="searchInput"
+              @keyup.enter="search"
+            />
+          </div>
+          <div class="article-origin">
+            Powered by
+            <a href="http://libgen.rs/" target="_blank" class="libgen"
+              >Library Genesis</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud Storage -->
+      <div class="cloud">
+        <div class="pages-title">Cloud Storage</div>
+      </div>
     </div>
     <div class="side-section">
       <div class="section">
@@ -159,7 +184,7 @@
       </div>
 
       <div class="section new birthday-section">
-        <div class="section-title birthday-title">Birthday</div>
+        <div class="section-title birthday-title">✨ Birthday 🎉</div>
         <div class="section-desc">Birthday this month</div>
         <div class="birthday-list">
           <Birthday
@@ -204,6 +229,7 @@ export default Vue.extend({
     cd_hours: 10,
     cd_minutes: 10,
     cd_seconds: 10,
+    searchInput: '',
   }),
   mounted() {
     const dateObj: Date = new Date()
@@ -235,6 +261,13 @@ export default Vue.extend({
       this.cd_minutes = Math.floor((differenceInMilis % HOUR) / MINUTE)
       this.cd_seconds = Math.floor((differenceInMilis % MINUTE) / SECOND)
     }, 8000)
+  },
+  methods: {
+    search() {
+      const parsedSearchText: string = this.searchInput.replaceAll(' ', '+')
+      window.open(`http://libgen.rs/scimag/?q=${parsedSearchText}`, '_blank')
+      this.searchInput = ''
+    },
   },
   computed: {
     months() {
@@ -568,5 +601,50 @@ export default Vue.extend({
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+}
+
+.scholar {
+  margin-top: 2rem;
+}
+
+.search-article {
+  border-radius: 250px;
+  padding: 2px 20px;
+  width: fit-content;
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  background: #eeeee0;
+  position: relative;
+}
+
+.search-article input {
+  width: 26vw;
+  padding: 11px 10px 9px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.article-origin {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 12px;
+  color: gray;
+}
+
+.libgen {
+  color: #a00000;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.libgen:hover {
+  color: rgba(160, 0, 0, 0.7);
+}
+
+.cloud {
+  margin-top: 2rem;
 }
 </style>
