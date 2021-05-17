@@ -48,7 +48,7 @@ export default Vue.extend({
     },
 
     randomClass() {
-      return `s${Math.floor(Math.random() * 4)}`
+      return `s${Math.floor(Math.random() * 4) + 1}`
     },
   },
 })
