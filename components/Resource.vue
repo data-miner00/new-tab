@@ -1,5 +1,5 @@
 <template>
-  <a :href="url" class="resource">
+  <a :href="url" class="resource" target="_blank">
     <div class="resource-icon">
       <img :src="src" alt="" />
     </div>

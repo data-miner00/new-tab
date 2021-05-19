@@ -1,5 +1,5 @@
 <template lang="pug">
-  a.individual(:href="url")
+  a.individual(:href="url" target="_blank")
     .favicon
       div
         img(:src="src")
