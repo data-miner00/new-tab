@@ -13,8 +13,14 @@ export default Vue.extend({
   methods: {
     // On keydown search function
     navigateSearch() {
-      const searchbar: HTMLElement | null = document.getElementById('searchbar')
-      searchbar && searchbar.focus()
+      const searchbar: HTMLInputElement = document.getElementById(
+        'searchbar'
+      ) as HTMLInputElement
+      searchbar &&
+        (() => {
+          searchbar.value = ''
+          searchbar.focus()
+        })()
     },
   },
 })
