@@ -147,11 +147,15 @@
           />
         </div>
       </div>
+
+      <!-- <div class="financial-service">
+        <div class="pages-title">Financial Service</div>
+      </div> -->
     </div>
     <div class="side-section">
       <div class="section">
         <div class="section-title">Reminder</div>
-        <div class="reminding-task">JLPT Exam</div>
+        <div class="reminding-task">Mihoyo Stream</div>
         <div class="countdown">
           <div class="time-t">
             <div class="time-left">{{ cd_days }}</div>
@@ -189,6 +193,13 @@
             Raygun, the collest thing on earth, lorem ipsum dolor sit amet.
             Adispicing elet. Lmao msis.
           </div>
+        </div>
+      </div>
+
+      <div class="section new goal-section">
+        <div class="section-title">Goals</div>
+        <div class="goals">
+          <div class="goal">This is my goal</div>
         </div>
       </div>
 
@@ -274,7 +285,7 @@ export default Vue.extend({
     this.time = time
     this.date = date
 
-    const reminderDate: Date = new Date('May 17, 2021 00:00:00')
+    const reminderDate: Date = new Date('May 28, 2021 20:00:00')
 
     setInterval(() => {
       const newDate: Date = new Date()
@@ -467,6 +478,11 @@ export default Vue.extend({
           name: 'iCloud',
           icon: 'icloud',
           url: 'https://www.icloud.com',
+        },
+        {
+          name: 'Mediafire',
+          icon: 'mediafire',
+          url: 'https://www.mediafire.com/',
         },
       ]
     },
@@ -719,5 +735,23 @@ export default Vue.extend({
 
 .cloud {
   margin-top: 4rem;
+}
+
+.goals {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.goal {
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(
+    -146deg,
+    rgba(255, 255, 255, 1) 19%,
+    rgba(76, 109, 247, 1) 95%
+  );
+  border: 1px solid #4c6df7;
 }
 </style>
