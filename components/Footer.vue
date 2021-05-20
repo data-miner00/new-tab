@@ -6,8 +6,6 @@
       a.link(href="#") About
       a.link(href="#") Help
       a.link(href="#") Contribute
-
-      
 </template>
 
 <script lang="ts">
