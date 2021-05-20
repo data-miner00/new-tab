@@ -1,7 +1,7 @@
 <template lang="pug">
   .birthday(:class="randomClass")
     .p-name {{ name }}
-    .p-birthday {{ dob }} • {{ timeLeft }} days left • {{ age }} yrs old
+    .p-birthday {{ dob }} • {{ timeLeft }} • {{ age }} yrs old
 </template>
 
 <script lang="ts">
@@ -33,7 +33,20 @@ export default Vue.extend({
 
       const daysLeft: number = Math.floor(diff / DAY)
 
-      return daysLeft
+      const totalTimeLeft: string =
+        daysLeft < 1
+          ? ((): string => {
+              const hoursLeft: number = Math.floor(diff / HOUR)
+              return hoursLeft < 1
+                ? ((): string => {
+                    const minutesLeft: number = Math.floor(diff / MINUTE)
+                    return `${minutesLeft} minutes left`
+                  })()
+                : `${hoursLeft} hours left`
+            })()
+          : `${daysLeft} days left`
+
+      return totalTimeLeft
     },
 
     age() {
