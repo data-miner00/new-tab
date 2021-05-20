@@ -18,6 +18,7 @@
       </div>
       <div class="search-input">
         <input
+          id="searchbar"
           type="text"
           placeholder="Search the internet by typing here"
           v-model="searchText"

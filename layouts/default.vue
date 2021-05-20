@@ -1,10 +1,24 @@
 <template>
-  <div class="root">
+  <div class="root" tabindex="0" @keydown.ctrl="navigateSearch">
     <Header />
     <Nuxt />
     <Footer />
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  methods: {
+    // On keydown search function
+    navigateSearch() {
+      const searchbar: HTMLElement | null = document.getElementById('searchbar')
+      searchbar && searchbar.focus()
+    },
+  },
+})
+</script>
 
 <style lang="sass">
 @import "~/assets/sass/layout"
