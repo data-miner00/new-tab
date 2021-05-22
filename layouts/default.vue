@@ -1,7 +1,8 @@
 <template>
   <div class="root" tabindex="0" @keydown.ctrl="navigateSearch">
     <Header />
-    <Nuxt />
+    <Nuxt v-if="!$slots.default" />
+    <slot />
     <Footer />
   </div>
 </template>
@@ -12,22 +13,24 @@ import Vue from 'vue'
 export default Vue.extend({
   methods: {
     // On keydown search function
-    navigateSearch() {
-      const searchbar: HTMLInputElement = document.getElementById(
-        'searchbar'
-      ) as HTMLInputElement
-      searchbar &&
-        (() => {
-          searchbar.value = ''
-          searchbar.focus()
-        })()
+    navigateSearch(evt: any) {
+      if (evt.key == '/') {
+        const searchbar: HTMLInputElement = document.getElementById(
+          'searchbar'
+        ) as HTMLInputElement
+        searchbar &&
+          (() => {
+            searchbar.value = ''
+            searchbar.focus()
+          })()
+      }
     },
   },
 })
 </script>
 
 <style lang="sass">
-@import "~/assets/sass/layout"
+@import "~/assets/sass/global"
 
 .root
   // background-image: url(~assets/images/background2.jpg)
