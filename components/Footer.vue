@@ -1,9 +1,9 @@
 <template lang="pug">
   footer
-    a.build-with(href="https://nuxtjs.org")
+    a.build-with(href="https://nuxtjs.org" target="_blank")
       img(src="~/assets/images/builtwithnuxt.png" height="20")
     nav
-      a.link(href="#") About
+      NuxtLink.link(to="/about") About
       a.link(href="#") Help
       a.link(href="#") Contribute
 </template>
