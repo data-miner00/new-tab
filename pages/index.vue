@@ -24,23 +24,23 @@
 
       <!-- Available Actions -->
       <div class="available-actions">
-        <div class="action">
+        <NuxtLink class="action" to="/">
           <div class="title">Notes</div>
           <div class="description">
             Writing things down help you to free up your mental capacity for
             better productiveness.
           </div>
           <div class="link">To My Notes <fa icon="long-arrow-alt-right" /></div>
-        </div>
-        <div class="action">
+        </NuxtLink>
+        <NuxtLink class="action" to="/web">
           <div class="title">Web Management</div>
           <div class="description">
             Internet is a vast territory that must be documented to leverage the
             value they provides.
           </div>
           <div class="link">To Web List <fa icon="long-arrow-alt-right" /></div>
-        </div>
-        <div class="action">
+        </NuxtLink>
+        <NuxtLink class="action" to="/">
           <div class="title">Tasks</div>
           <div class="description">
             Life is busy and constantly bombarded with never-ending trials of
@@ -49,16 +49,16 @@
           <div class="link">
             To Task List <fa icon="long-arrow-alt-right" />
           </div>
-        </div>
-        <div class="action">
+        </NuxtLink>
+        <NuxtLink class="action" to="/">
           <div class="title">Diary</div>
           <div class="description">
             Cherish every moment in your life by transforming your experience
             into words that resonate.
           </div>
           <div class="link">To Diary <fa icon="long-arrow-alt-right" /></div>
-        </div>
-        <div class="action">
+        </NuxtLink>
+        <NuxtLink class="action" to="/">
           <div class="title">Scratchpad</div>
           <div class="description">
             A quick place for you to express your idea and consolidate them
@@ -67,8 +67,8 @@
           <div class="link">
             To Scratchpad <fa icon="long-arrow-alt-right" />
           </div>
-        </div>
-        <div class="action">
+        </NuxtLink>
+        <NuxtLink class="action" to="/">
           <div class="title">Dictionary</div>
           <div class="description">
             Save new vocabulary that can be reviewed later on to reinforce the
@@ -77,7 +77,7 @@
           <div class="link">
             To Dictionary <fa icon="long-arrow-alt-right" />
           </div>
-        </div>
+        </NuxtLink>
       </div>
 
       <!-- Frequently Visited -->
@@ -429,7 +429,7 @@ export default Vue.extend({
         {
           name: 'Tan Wei Jie',
           birthYear: 1998,
-          birthMonth: 5,
+          birthMonth: 6,
           birthDay: 21,
         },
         {
