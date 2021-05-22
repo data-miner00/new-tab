@@ -1,7 +1,9 @@
 <template>
   <header>
     <!-- Logo -->
-    <div class="logo">New Tab</div>
+    <NuxtLink to="/">
+      <div class="logo">New Tab</div>
+    </NuxtLink>
 
     <!-- Search Section -->
     <div class="search">
@@ -62,6 +64,7 @@ export default Vue.extend({
           ?.searchUrl + parsedSearchText
 
       window.open(parsedUrl, '_blank')
+      this.searchText = ''
     },
   },
   computed: {
@@ -131,7 +134,8 @@ header
     display: flex
     border: 1px solid #eee
     border-radius: 250px
-    // background: rgba(255, 255, 255, 0.3)
+
+
 
     input, select
       border: none
