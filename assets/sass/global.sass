@@ -1,0 +1,35 @@
+@import "./_variables"
+/* Resets
+ =========================================== */
+*,
+*::before,
+*::after 
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+/* Global styles
+ =========================================== */
+html
+  font-family: $montserrat
+
+a
+  text-decoration: none
+  color: inherit
+
+
+.chevron
+  height: 20px
+  width: 40px
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 7px
+    height: 7px
+    border-top: 1px solid black
+    border-right: 1px solid black
+    transform: translate(-75%, -50%) rotateZ(45deg)
