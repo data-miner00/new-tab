@@ -4,7 +4,7 @@
       h4 Web Repository
       .container
         .leftbar
-          Category(v-for="(category, index) in links" :key="index" :title="category")
+          Category(v-for="(category, index) in links" :key="index" :title="category" @click.native="setPageState(category)")
         .content
           Nuxt
   
@@ -16,7 +16,11 @@ import DefaultLayout from './default.vue'
 export default Vue.extend({
   //
   components: { DefaultLayout },
-
+  methods: {
+    setPageState(category: string) {
+      this.$store.commit('web/setPage', category)
+    },
+  },
   computed: {
     links() {
       return [
@@ -53,5 +57,5 @@ export default Vue.extend({
       padding-right: 32px
     .content
       flex-grow: 1
-      background: pink
+      padding: 0 16px
 </style>
