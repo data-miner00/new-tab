@@ -524,7 +524,7 @@ export default Vue.extend({
 }
 
 .greeting {
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 600;
   margin-top: 40px;
 }
@@ -580,13 +580,13 @@ export default Vue.extend({
 }
 
 .title {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
 }
 
 .description {
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 0.875em;
 }
 
 .link {
@@ -599,7 +599,7 @@ export default Vue.extend({
 }
 
 .section-title {
-  font-size: 14px;
+  font-size: 0.875em;
   color: gray;
   font-weight: 800;
   text-transform: uppercase;
@@ -616,7 +616,7 @@ export default Vue.extend({
 }
 
 .ad-desc {
-  font-size: 12px;
+  font-size: 0.75em;
   padding: 10px 0;
   text-align: justify;
 }
@@ -634,7 +634,7 @@ export default Vue.extend({
 
 .pages-title {
   text-align: center;
-  font-size: 18px;
+  font-size: 1.125em;
 }
 
 .countdown {
@@ -651,11 +651,11 @@ export default Vue.extend({
 }
 
 .time-left {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
 .time-label {
-  font-size: 12px;
+  font-size: 0.75em;
   color: gray;
 }
 
@@ -719,7 +719,7 @@ export default Vue.extend({
   position: absolute;
   bottom: -20px;
   right: 0;
-  font-size: 12px;
+  font-size: 0.75em;
   color: gray;
 }
 
