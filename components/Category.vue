@@ -1,6 +1,6 @@
 <template lang="pug">
-  nuxt-link(to="/")
-    .category( :class="{'active': active}")
+  nuxt-link(:to="to")
+    .category(:class="{ 'active': active }")
       .chevron
       .category-title {{ title }}
 </template>
@@ -12,11 +12,12 @@ export default Vue.extend({
     title: String,
   },
   computed: {
-    to() {
-      return '/web'
-    },
     active() {
-      return this.title == 'Business'
+      return this.title == this.$store.state.web.page
+    },
+    to() {
+      if (this.title == 'Main') return '/web'
+      return '/web/' + this.title
     },
   },
 })
