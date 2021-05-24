@@ -24,7 +24,7 @@
 
       <!-- Available Actions -->
       <div class="available-actions">
-        <NuxtLink class="action" to="/">
+        <NuxtLink class="action" to="/notes">
           <div class="title">Notes</div>
           <div class="description">
             Writing things down help you to free up your mental capacity for
