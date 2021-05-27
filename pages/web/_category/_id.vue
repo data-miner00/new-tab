@@ -1,6 +1,6 @@
 <template lang="pug">
   .details-page 
-    .back-arrow
+    .back-arrow(@click="$router.go(-1)")
       .back-arrow-wrap
         fa(icon="arrow-left")
     .site-details
