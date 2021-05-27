@@ -20,4 +20,5 @@ export default Vue.extend({
   padding: 5px 8px
   background: orange
   font-size: .625em
+  color: white
 </style>
