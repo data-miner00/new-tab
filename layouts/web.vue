@@ -1,14 +1,14 @@
 <template lang="pug">
   DefaultLayout
-    .layout__web
-      .layout__web__leftbar
+    .layout--web
+      .layout--web__leftbar
         Category(
           v-for="(category, index) in links" 
           :key="index" 
           :title="category" 
           @click.native="setPageState(category)"
         )
-      .layout__web__content
+      .layout--web__content
         Nuxt
   
 </template>
@@ -46,9 +46,9 @@ export default Vue.extend({
 
 <style lang="sass" scoped>
 @import "../assets/sass/_mixins"
-.layout__web
+.layout--web
   @include pageBaseStyle
-  min-height: 80vh
+
   display: grid
   grid-template-columns: 320px 1fr
 
@@ -56,4 +56,5 @@ export default Vue.extend({
     padding-right: 32px
   &__content
     padding: 0 16px
+    min-height: 100vh
 </style>
