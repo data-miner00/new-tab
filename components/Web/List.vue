@@ -7,18 +7,24 @@
           th.website-label Website
           th.tags-label Tags
           th.action-label
+          th.action-label
       tbody
         tr(v-for="(site, index) in sites" :key="index")
           td.index {{ index + 1 }}.
           td
             .website
               div
-                img.favicon(src="/favicons/google.png")
+                img.favicon(:src="`/favicons/${site.icon}.png`")
               div {{ site.name }}
 
           td.tags #[WebTag(v-for="tag in site.tags" :key="tag" :tag="tag")]
           td
-            fa(icon="info-circle")
+            a(:href="site.url" target="_blank") Visit
+          td
+            NuxtLink(:to="$router.history.current.path + `/${site.name}`")
+              fa(icon="info-circle")
+          
+            
 </template>
 
 <script lang="ts">
