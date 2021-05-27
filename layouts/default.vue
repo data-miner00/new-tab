@@ -40,4 +40,5 @@ export default Vue.extend({
   // background-position: center
   background: white
   min-height: 100vh
+  color: #2F495E
 </style>
